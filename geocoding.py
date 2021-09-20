@@ -11,20 +11,21 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 # Base Url for geocoding
+URL = "https://us1.locationiq.com/v1/search.php"
+# Token for api call
+PRIVATE_TOKEN = "pk.727f7e39de9a6cafee73b56668557864"
 
 def get_geo(address):
     '''
     Function that holds all of the functionality to find latitude
     and longitude
     '''
-    url = "https://us1.locationiq.com/v1/search.php"
-    private_token = "pk.727f7e39de9a6cafee73b56668557864"
     data = {
-        'key': private_token,
+        'key': PRIVATE_TOKEN,
         'q': address,
         'format': 'json'
     }
-    response = requests.get(url, params=data)
+    response = requests.get(URL, params=data)
     latitude = response.json()[0]['lat']
     longitude = response.json()[0]['lon']
     geo_lst = [latitude, longitude]
