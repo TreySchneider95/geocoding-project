@@ -15,6 +15,7 @@ URL = "https://us1.locationiq.com/v1/search.php"
 # Token for api call
 PRIVATE_TOKEN = "pk.727f7e39de9a6cafee73b56668557864"
 
+#test
 def get_geo(address):
     '''
     Function that holds all of the functionality to find latitude
